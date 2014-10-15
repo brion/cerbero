@@ -5,7 +5,7 @@ class Recipe(recipe.Recipe):
     name = 'gst-validate'
     version = '1.0'
     licenses = [License.LGPLv2Plus]
-    commit = 'origin/master'
+    commit = '9158bb36e30dd4069d2b8a32ced941883d69eeb4'
     srcdir = 'validate'
     config_sh = 'sh ./autogen.sh --noconfigure && ./configure --enable-static --program-transform-name= '
     deps = ['gstreamer-1.0', 'gst-plugins-base-1.0']
