@@ -1,0 +1,26 @@
+From f6d1495a332f2ffbcd0ca6ef21e0cbfc63e32c36 Mon Sep 17 00:00:00 2001
+From: Brion Vibber <brion@pobox.com>
+Date: Wed, 15 Oct 2014 08:32:21 -0700
+Subject: [PATCH] Maybe?
+
+---
+ modules/input/Makefile.am | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/modules/input/Makefile.am b/modules/input/Makefile.am
+index 519be8e..68cf41f 100644
+--- a/modules/input/Makefile.am
++++ b/modules/input/Makefile.am
+@@ -150,7 +150,9 @@ endif
+ im_quartz_la_CPPFLAGS = $(AM_CPPFLAGS) -xobjective-c
+ im_quartz_la_LDFLAGS = -rpath $(moduledir) -avoid-version -module $(no_undefined)
+ im_quartz_la_SOURCES = imquartz.c
++libstatic_im_quartz_la_CPPFLAGS = $(AM_CPPFLAGS) -xobjective-c
+ libstatic_im_quartz_la_SOURCES = $(im_quartz_la_SOURCES)
++imquartz_lo_CPPFLAGS = $(AM_CPPFLAGS) -xobjective-c
+ im_quartz_la_LIBADD = $(LDADDS)
+ if INCLUDE_IM_QUARTZ
+ STATIC_QUARTZ_MODULE = libstatic-im-quartz.la
+-- 
+1.9.3 (Apple Git-50)
+
