@@ -24,7 +24,7 @@ class Recipe(recipe.Recipe):
     config_sh = 'sh autogen.sh'
     deps = ['libffi', 'zlib']
     can_use_configure_cache = False
-    patches = ['glib/0001-Fix-for-python-usage-when-python-overridden-to-pytho.patch']
+    patches = ['glib/0001-gdbus-codgen-Use-a-proper-shebang-in-the-generator.patch']
 
     files_libs = [
         'libglib-2.0', 'libgio-2.0', 'libgmodule-2.0', 'libgobject-2.0',
