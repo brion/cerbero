@@ -2,7 +2,7 @@
 
 class Recipe(recipe.Recipe):
     name = 'clutter'
-    version = '1.16.2'
+    version = '1.20.0'
     # TODO: check license - some source files are LGPLv2+, others LGPLv2.1+
     #       and COPYING is LGPLv2.1
     licenses = [License.LGPLv2_1Plus]
@@ -10,7 +10,9 @@ class Recipe(recipe.Recipe):
     use_system_libs = True
 
     stype = SourceType.TARBALL
-    url = 'http://ftp.gnome.org/pub/GNOME/sources/clutter/1.16/clutter-%(version)s.tar.xz'
+    url = 'http://ftp.gnome.org/pub/GNOME/sources/clutter/1.20/clutter-%(version)s.tar.xz'
+
+    patches = ['clutter/0001-Quick-hack-to-fix-crash-in-clutter-gtk-osx-runloop-c.patch']
 
     files_devel = [
         'lib/pkgconfig/clutter-1.0.pc',

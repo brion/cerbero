@@ -1,0 +1,36 @@
+From 622113b6e5b3907b0c435a77d484f7a400d8dfb0 Mon Sep 17 00:00:00 2001
+From: Brion Vibber <brion@pobox.com>
+Date: Sun, 19 Oct 2014 15:58:46 -0700
+Subject: [PATCH] Quick hack to fix crash in clutter/gtk/osx runloop
+ combination
+
+An NSDate instance we passed down to NSApplication was being
+prematurely released. Add an extra retain/release to avoid
+exploding.
+---
+ clutter/osx/clutter-event-loop-osx.c | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/clutter/osx/clutter-event-loop-osx.c b/clutter/osx/clutter-event-loop-osx.c
+index 6b3a561..2c03f8d 100644
+--- a/clutter/osx/clutter-event-loop-osx.c
++++ b/clutter/osx/clutter-event-loop-osx.c
+@@ -751,6 +751,7 @@ poll_func (GPollFD *ufds,
+     limit_date = [NSDate distantPast];
+   else
+     limit_date = [NSDate dateWithTimeIntervalSinceNow:timeout_/1000.0];
++  [limit_date retain];
+ 
+   getting_events = TRUE;
+   event = [NSApp nextEventMatchingMask: NSAnyEventMask
+@@ -780,6 +781,7 @@ poll_func (GPollFD *ufds,
+       g_queue_push_head (current_events, [event retain]);
+     }
+ 
++  [limit_date release];
+   return n_ready;
+ }
+ 
+-- 
+1.9.3 (Apple Git-50)
+
