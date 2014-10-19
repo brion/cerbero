@@ -3,13 +3,14 @@
 
 class Recipe(recipe.Recipe):
     name = 'Python'
-    version = '3.3.5'
+    version = '3.4.2'
     stype = SourceType.TARBALL
     url = 'https://www.python.org/ftp/python/%(version)s/Python-%(version)s.tar.xz'
     # Python Software Foundation License
     licenses = [License.BSD_like]
     deps = ['libffi', 'sqlite']
     configure_options = '--enable-loadable-sqlite-extensions --enable-shared '
+    patches = ['python3/0001-disable-stack-size.patch']
 
     files_python = [
          'plistlib.py',

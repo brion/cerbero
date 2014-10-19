@@ -1,0 +1,39 @@
+From e834702c84a26802a7649e19299ca6021c1f95c6 Mon Sep 17 00:00:00 2001
+From: Brion Vibber <brion@pobox.com>
+Date: Sun, 19 Oct 2014 09:36:27 -0700
+Subject: [PATCH] disable stack_size in LINKFORSHARED
+
+---
+ configure                           |   2 +-
+ configure.ac                        |   2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/configure b/configure
+index 139d391..cf30e3e 100755
+--- a/configure
++++ b/configure
+@@ -8691,7 +8691,7 @@ then
+ 		# Issue #18075: the default maximum stack size (8MBytes) is too
+ 		# small for the default recursion limit. Increase the stack size
+ 		# to ensure that tests don't crash
+-		LINKFORSHARED="-Wl,-stack_size,1000000 $LINKFORSHARED"
++		#LINKFORSHARED="-Wl,-stack_size,1000000 $LINKFORSHARED"
+ 
+ 		if test "$enable_framework"
+ 		then
+diff --git a/configure.ac b/configure.ac
+index 9698ea0..0656359 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -2163,7 +2163,7 @@ then
+ 		# Issue #18075: the default maximum stack size (8MBytes) is too
+ 		# small for the default recursion limit. Increase the stack size
+ 		# to ensure that tests don't crash
+-		LINKFORSHARED="-Wl,-stack_size,1000000 $LINKFORSHARED"
++		#LINKFORSHARED="-Wl,-stack_size,1000000 $LINKFORSHARED"
+ 
+ 		if test "$enable_framework"
+ 		then
+-- 
+1.9.3 (Apple Git-50)
+
