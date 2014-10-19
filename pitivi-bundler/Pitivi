@@ -1,0 +1,23 @@
+#!/bin/sh
+
+BASE=`dirname "$0"`
+
+export APPDIR="$BASE"
+
+export DYLD_FALLBACK_LIBRARY_PATH="$BASE/lib:/usr/lib"
+export GI_TYPELIB_PATH="$BASE/lib/girepository-1.0"
+export GSTREAMER_ROOT="$BASE"
+export GST_PLUGIN_PATH="$BASE/lib/gstreamer-0.10"
+export GST_PLUGIN_PATH_1_0="$BASE/lib/gstreamer-1.0"
+export INFOPATH="$BASE/share/info"
+export LD_LIBRARY_PATH="$BASE/lib"
+export MANPATH="$BASE/share/man"
+export PATH="$BASE/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin"
+export PKG_CONFIG_LIBDIR="$BASE/lib/pkgconfig"
+export PKG_CONFIG_PATH="$BASE/share/pkgconfig"
+export PYTHONPATH="$BASE/lib/python3.3/site-packages"
+export XCURSOR_PATH="$BASE/share/icons"
+export XDG_CONFIG_DIRS="$BASE/etc/xdg"
+export XDG_DATA_DIRS="$BASE/share"
+
+pitivi
